@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Depoimentos | Eletrotech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Barra Lateral Administrativa -->
+    <aside class="admin-sidebar">
+      <div>
+        <div class="brand">
+          <span class="brand-mark brand-mark--aqua" aria-hidden="true">E</span>
+          <span class="brand-text">
+            <span class="brand-name">Eletrotech Admin</span>
+            <span class="brand-sub">Admin Master</span>
+          </span>
+        </div>
+
+        <nav class="admin-nav" aria-label="Menu Administrativo">
+          <a href="produtos.html" class="admin-nav-link">
+            <i class="fa-solid fa-box" aria-hidden="true"></i>
+            <span>Produtos &amp; Sondas</span>
+          </a>
+          <a href="servicos.html" class="admin-nav-link">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span>Serviços Prestados</span>
+          </a>
+          <a href="depoimentos.html" class="admin-nav-link active" aria-current="page">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>Depoimentos</span>
+          </a>
+          <a href="faq.html" class="admin-nav-link">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+            <span>FAQ &amp; Dúvidas</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="faq-list">
+        <a href="../index.html" class="admin-nav-link">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          <span>Ver Website</span>
+        </a>
+        <a href="login.html" class="admin-nav-link">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Sair (Logout)</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal CRUD -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>Avaliações &amp; Prova Social de Produtores</h1>
+          <p class="caption">Gerencie testemunhos reais de produtores que utilizam a Sonda Oxilife Fish.</p>
+        </div>
+        <button type="button" class="btn-primary">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Novo Depoimento</span>
+        </button>
+      </header>
+
+      <div class="filter-bar">
+        <div class="search-box">
+          <input type="search" class="search-input" data-search-input placeholder="Filtrar depoimento por produtor ou município..." aria-label="Filtrar depoimentos">
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card-testimonial" data-item-category="depoimento">
+          <div class="card-meta-row">
+            <div>
+              <div class="card-testimonial__author">João Carlos S.</div>
+              <div class="caption">Piscicultor em Toledo - PR &bull; Cliente há 2 anos</div>
+            </div>
+            <div class="card-testimonial__stars" aria-label="5 estrelas">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <p class="body-text">
+            &ldquo;Com a sonda Oxilife Fish não perdemos nenhum peixe na última safra. Os aeradores ligaram de madrugada e salvaram o tanque sem precisarmos sair da cama na chuva.&rdquo;
+          </p>
+
+          <div class="card-footer-row">
+            <span class="caption">Cadastrado em: 14/10/2026</span>
+            <div class="action-group">
+              <button type="button" class="btn-action" aria-label="Editar depoimento de João Carlos S.">
+                <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                <span>Editar</span>
+              </button>
+              <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir depoimento de João Carlos S.">
+                <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                <span>Excluir</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-testimonial" data-item-category="depoimento">
+          <div class="card-meta-row">
+            <div>
+              <div class="card-testimonial__author">Marcos B.</div>
+              <div class="caption">Propriedade em Palotina - PR &bull; Piscicultura Intensiva</div>
+            </div>
+            <div class="card-testimonial__stars" aria-label="5 estrelas">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <p class="body-text">
+            &ldquo;Economizamos mais de 30% na conta de energia porque os aeradores só rodam o tempo estritamente necessário. O investimento se pagou no primeiro ciclo.&rdquo;
+          </p>
+
+          <div class="card-footer-row">
+            <span class="caption">Cadastrado em: 02/10/2026</span>
+            <div class="action-group">
+              <button type="button" class="btn-action" aria-label="Editar depoimento de Marcos B.">
+                <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                <span>Editar</span>
+              </button>
+              <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir depoimento de Marcos B.">
+                <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                <span>Excluir</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+

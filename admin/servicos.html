@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Serviços Prestados | Eletrotech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Barra Lateral Administrativa -->
+    <aside class="admin-sidebar">
+      <div>
+        <div class="brand">
+          <span class="brand-mark brand-mark--aqua" aria-hidden="true">E</span>
+          <span class="brand-text">
+            <span class="brand-name">Eletrotech Admin</span>
+            <span class="brand-sub">Admin Master</span>
+          </span>
+        </div>
+
+        <nav class="admin-nav" aria-label="Menu Administrativo">
+          <a href="produtos.html" class="admin-nav-link">
+            <i class="fa-solid fa-box" aria-hidden="true"></i>
+            <span>Produtos &amp; Sondas</span>
+          </a>
+          <a href="servicos.html" class="admin-nav-link active" aria-current="page">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span>Serviços Prestados</span>
+          </a>
+          <a href="depoimentos.html" class="admin-nav-link">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>Depoimentos</span>
+          </a>
+          <a href="faq.html" class="admin-nav-link">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+            <span>FAQ &amp; Dúvidas</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="faq-list">
+        <a href="../index.html" class="admin-nav-link">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          <span>Ver Website</span>
+        </a>
+        <a href="login.html" class="admin-nav-link">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Sair (Logout)</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal CRUD -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>Gestão de Serviços Técnicos</h1>
+          <p class="caption">Configure os serviços ofertados aos produtores rurais e agroindústrias.</p>
+        </div>
+        <button type="button" class="btn-primary">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Novo Serviço Técnico</span>
+        </button>
+      </header>
+
+      <div class="filter-bar">
+        <div class="search-box">
+          <input type="search" class="search-input" data-search-input placeholder="Buscar serviço ou setor..." aria-label="Buscar serviço técnico">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Nome do Serviço</th>
+              <th scope="col">Setor / Tipo</th>
+              <th scope="col">Descrição Resumida</th>
+              <th scope="col">Idiomas Ativos</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-item-category="agro">
+              <td><strong>Automação de Aeradores</strong></td>
+              <td><span class="section-tag">Agroindustrial</span></td>
+              <td>Instalação de quadros inteligentes integrados com a sonda Oxilife Fish e partida suave.</td>
+              <td>PT / ES / EN</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Automação de Aeradores">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Automação de Aeradores">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="oficina">
+              <td><strong>Manutenção de Motores Elétricos</strong></td>
+              <td><span class="section-tag">Oficina Própria</span></td>
+              <td>Diagnóstico de isolamento, rebobinamento e substituição de rolamentos vedados.</td>
+              <td>PT / ES</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Manutenção de Motores Elétricos">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Manutenção de Motores Elétricos">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="redes">
+              <td><strong>Instalações Rurais e Industriais</strong></td>
+              <td><span class="section-tag">Campo &amp; Redes</span></td>
+              <td>Montagem de subestações rurais, adequação trifásica Copel e cabeamento subterrâneo.</td>
+              <td>PT / ES / EN</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Instalações Rurais e Industriais">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Instalações Rurais e Industriais">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+

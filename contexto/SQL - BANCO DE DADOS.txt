@@ -1,0 +1,110 @@
+-- SCRIPT DE CRIAÇÃO DO BANCO DE DADOS - ELETROTECH / OXILIFE FISH
+-- Projeto Integrador - Grupo 3
+
+-- 1. TABELA DE USUÁRIOS ADMINISTRADORES
+-- Guarda quem pode logar no painel para cadastrar produtos e ler mensagens.
+
+CREATE TABLE usuarios_admin (
+    id_usuario SERIAL PRIMARY KEY,                 -- Código único do usuário (gerado automático)
+    nome VARCHAR(100) NOT NULL,                    -- Nome completo do administrador
+    email VARCHAR(150) NOT NULL UNIQUE,            -- E-mail para login (não pode repetir)
+    senha VARCHAR(255) NOT NULL,                   -- Senha criptografada
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Data e hora em que a conta foi criada
+);
+
+
+-- 2. TABELA DE CATEGORIAS
+-- Organiza os produtos em grupos (ex: "Sensores", "Painéis Elétricos", "Automação").
+
+CREATE TABLE categorias (
+    id_categoria SERIAL PRIMARY KEY,  -- Código único da categoria
+    nome VARCHAR(80) NOT NULL         -- Nome da categoria
+);
+
+
+-- 3. TABELA DE PRODUTOS
+-- Armazena o catálogo (Sonda Oxilife Fish, quadros de comando, etc.).
+-- Colunas _es e _en guardam a tradução da descrição.
+
+CREATE TABLE produtos (
+    id_produto SERIAL PRIMARY KEY,   -- Código único do produto
+    nome VARCHAR(150) NOT NULL,      -- Nome do produto (não traduzido - é nome de marca)
+    descricao TEXT,                  -- Explicação detalhada das funções (PT - idioma padrão)
+    descricao_es TEXT,               -- Mesma explicação, em espanhol
+    descricao_en TEXT,               -- Mesma explicação, em inglês
+    imagem_url VARCHAR(500),         -- Imagem principal (capa do card no catálogo)
+    destaque BOOLEAN DEFAULT FALSE,  -- Se TRUE, o produto aparece na Home do site
+    id_categoria INTEGER NOT NULL,   -- Código da categoria vinculada
+
+    FOREIGN KEY (id_categoria) REFERENCES categorias (id_categoria)
+);
+
+
+-- 3.1 TABELA DE GALERIA DE FOTOS DOS PRODUTOS
+-- A "imagem_url" de produtos continua sendo a foto de capa do card; aqui ficam as fotos extras.
+
+CREATE TABLE produto_imagens (
+    id_imagem SERIAL PRIMARY KEY,             -- Código único da imagem
+    id_produto INTEGER NOT NULL,              -- Produto ao qual a foto pertence
+    imagem_url VARCHAR(500) NOT NULL,         -- Caminho da foto
+
+    FOREIGN KEY (id_produto) REFERENCES produtos (id_produto)
+);
+
+
+-- 4. TABELA DE SERVIÇOS
+-- Registra a lista de serviços que a Eletrotech presta (ex: Instalação, Manutenção).
+
+CREATE TABLE servicos (
+    id_servico SERIAL PRIMARY KEY,  -- Código único do serviço
+    nome VARCHAR(150) NOT NULL,     -- Nome do serviço (PT)
+    nome_es VARCHAR(150),           -- Nome do serviço (ES)
+    nome_en VARCHAR(150),           -- Nome do serviço (EN)
+    descricao TEXT,                 -- Descrição do que está incluso (PT)
+    descricao_es TEXT,              -- Descrição (ES)
+    descricao_en TEXT,              -- Descrição (EN)
+    tipo VARCHAR(50) NOT NULL,      -- Categoria (ex: "Industrial", "Comercial", "Residencial")
+    imagem_url VARCHAR(500)         -- Ícone ou foto ilustrativa do serviço
+);
+
+
+-- 5. TABELA DE FAQ (PERGUNTAS FREQUENTES)
+-- Guarda as dúvidas comuns sobre o Oxilife Fish e a Eletrotech.
+
+CREATE TABLE faq (
+    id_faq SERIAL PRIMARY KEY,  -- Código único da pergunta
+    pergunta TEXT NOT NULL,     -- Ex: "Como a sonda Oxilife Fish mede o oxigênio?" (PT)
+    pergunta_es TEXT,           -- Pergunta (ES)
+    pergunta_en TEXT,           -- Pergunta (EN)
+    resposta TEXT NOT NULL,     -- Ex: "A sonda utiliza sensores ópticos de alta precisão..." (PT)
+    resposta_es TEXT,           -- Resposta (ES)
+    resposta_en TEXT            -- Resposta (EN)
+);
+
+
+-- 6. TABELA DE MENSAGENS DE CONTATO / ORÇAMENTO
+-- Registra os recados e pedidos de orçamento enviados pelos clientes no site.
+
+CREATE TABLE mensagens_contato (
+    id_mensagem SERIAL PRIMARY KEY,                 -- Código único da mensagem
+    nome VARCHAR(100) NOT NULL,                     -- Nome do cliente
+    email VARCHAR(150) NOT NULL,                    -- E-mail para contato (Adicionado para dar suporte a respostas)
+    telefone VARCHAR(20) NOT NULL,                  -- WhatsApp ou telefone do cliente
+    mensagem TEXT NOT NULL,                         -- Texto do orçamento ou dúvida
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP  -- Registra dia e hora exatos do envio
+);
+
+
+-- 7. TABELA DE DEPOIMENTOS
+-- Guarda os depoimentos de produtores/piscicultores exibidos na seção técnica do Oxilife Fish.
+-- Fica em português apenas: depoimento é a fala real do cliente, então não faz sentido "traduzir"
+-- a citação dele - mantemos autêntico, igual a um print de avaliação real.
+
+CREATE TABLE depoimentos (
+    id_depoimento SERIAL PRIMARY KEY,               -- Código único do depoimento
+    nome_produtor VARCHAR(100) NOT NULL,            -- Nome do produtor/piscicultor
+    texto TEXT NOT NULL,                            -- O que o produtor disse
+    nota SMALLINT DEFAULT 5,                        -- Avaliação em estrelas (1 a 5)
+    foto_url VARCHAR(500),                          -- Foto do produtor (opcional)
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP   -- Data em que o depoimento foi cadastrado
+);

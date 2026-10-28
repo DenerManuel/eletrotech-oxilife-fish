@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de FAQ &amp; Dúvidas | Eletrotech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Barra Lateral Administrativa -->
+    <aside class="admin-sidebar">
+      <div>
+        <div class="brand">
+          <span class="brand-mark brand-mark--aqua" aria-hidden="true">E</span>
+          <span class="brand-text">
+            <span class="brand-name">Eletrotech Admin</span>
+            <span class="brand-sub">Admin Master</span>
+          </span>
+        </div>
+
+        <nav class="admin-nav" aria-label="Menu Administrativo">
+          <a href="produtos.html" class="admin-nav-link">
+            <i class="fa-solid fa-box" aria-hidden="true"></i>
+            <span>Produtos &amp; Sondas</span>
+          </a>
+          <a href="servicos.html" class="admin-nav-link">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span>Serviços Prestados</span>
+          </a>
+          <a href="depoimentos.html" class="admin-nav-link">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>Depoimentos</span>
+          </a>
+          <a href="faq.html" class="admin-nav-link active" aria-current="page">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+            <span>FAQ &amp; Dúvidas</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="faq-list">
+        <a href="../index.html" class="admin-nav-link">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          <span>Ver Website</span>
+        </a>
+        <a href="login.html" class="admin-nav-link">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Sair (Logout)</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal CRUD -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>Dúvidas Técnicas Frequentes (FAQ)</h1>
+          <p class="caption">Gerencie respostas para perguntas sobre instalação, calibração e garantia.</p>
+        </div>
+        <button type="button" class="btn-primary">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Nova Pergunta FAQ</span>
+        </button>
+      </header>
+
+      <div class="filter-bar">
+        <div class="search-box">
+          <input type="search" class="search-input" data-search-input placeholder="Filtrar pergunta técnica..." aria-label="Filtrar perguntas do FAQ">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Pergunta (Português)</th>
+              <th scope="col">Resumo da Resposta Técnica</th>
+              <th scope="col">Status de Tradução</th>
+              <th scope="col">Situação</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-item-category="faq">
+              <td>01</td>
+              <td><strong>Como a sonda mede o oxigênio na água turva?</strong></td>
+              <td>Utiliza sensores ópticos de luminescência sem consumo químico de oxigênio.</td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><span class="badge-status badge-status--success">Ativo</span></td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar pergunta 01">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir pergunta 01">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="faq">
+              <td>02</td>
+              <td><strong>A sonda aciona os aeradores sozinha à noite?</strong></td>
+              <td>Sim, integra comando elétrico IoT que liga os motores em nível crítico.</td>
+              <td>PT &check; | ES pendente</td>
+              <td><span class="badge-status badge-status--success">Ativo</span></td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar pergunta 02">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir pergunta 02">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="faq">
+              <td>03</td>
+              <td><strong>O que acontece em caso de queda de energia?</strong></td>
+              <td>Possui bateria de backup interna e envia alerta prioritário de falta de rede.</td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><span class="badge-status badge-status--success">Ativo</span></td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar pergunta 03">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir pergunta 03">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="faq">
+              <td>04</td>
+              <td><strong>Como funciona a calibração do sensor?</strong></td>
+              <td>Calibração anual em 100% de saturação do ar com procedimento direto via app.</td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><span class="badge-status badge-status--success">Ativo</span></td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar pergunta 04">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir pergunta 04">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+

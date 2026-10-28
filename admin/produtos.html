@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Produtos &amp; Sondas | Eletrotech Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Barra Lateral Administrativa -->
+    <aside class="admin-sidebar">
+      <div>
+        <div class="brand">
+          <span class="brand-mark brand-mark--aqua" aria-hidden="true">E</span>
+          <span class="brand-text">
+            <span class="brand-name">Eletrotech Admin</span>
+            <span class="brand-sub">Admin Master</span>
+          </span>
+        </div>
+
+        <nav class="admin-nav" aria-label="Menu Administrativo">
+          <a href="produtos.html" class="admin-nav-link active" aria-current="page">
+            <i class="fa-solid fa-box" aria-hidden="true"></i>
+            <span>Produtos &amp; Sondas</span>
+          </a>
+          <a href="servicos.html" class="admin-nav-link">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span>Serviços Prestados</span>
+          </a>
+          <a href="depoimentos.html" class="admin-nav-link">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>Depoimentos</span>
+          </a>
+          <a href="faq.html" class="admin-nav-link">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+            <span>FAQ &amp; Dúvidas</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="faq-list">
+        <a href="../index.html" class="admin-nav-link">
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          <span>Ver Website</span>
+        </a>
+        <a href="login.html" class="admin-nav-link">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Sair (Logout)</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal CRUD -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>Produtos &amp; Sondas</h1>
+          <p class="caption">Gerenciamento do catálogo técnico de equipamentos e traduções ativas.</p>
+        </div>
+        <button type="button" class="btn-primary">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Adicionar Novo Produto</span>
+        </button>
+      </header>
+
+      <div class="filter-bar">
+        <div class="search-box">
+          <input type="search" class="search-input" data-search-input placeholder="Filtrar por nome, SKU ou categoria..." aria-label="Filtrar produtos">
+        </div>
+        <div class="filter-pills" role="group" aria-label="Filtrar por categoria">
+          <button type="button" class="filter-btn active" data-filter-category="all">Todas as Categorias</button>
+          <button type="button" class="filter-btn" data-filter-category="sondas">Sondas</button>
+          <button type="button" class="filter-btn" data-filter-category="paineis">Painéis</button>
+          <button type="button" class="filter-btn" data-filter-category="sensores">Sensores</button>
+          <button type="button" class="filter-btn" data-filter-category="telemetria">Telemetria</button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">SKU</th>
+              <th scope="col">Nome do Produto</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Destaque</th>
+              <th scope="col">Traduções Ativas</th>
+              <th scope="col">Fotos Anexas</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-item-category="sondas">
+              <td><span class="sku-tag">OXI-01</span></td>
+              <td>
+                <strong>Sonda Oxilife Fish</strong>
+                <div class="caption">Monitoramento O₂ e temperatura em viveiros</div>
+              </td>
+              <td>Sondas</td>
+              <td><span class="badge-status badge-status--success">SIM</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><i class="fa-regular fa-image" aria-hidden="true"></i> 3 Fotos</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Sonda Oxilife Fish">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Sonda Oxilife Fish">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="paineis">
+              <td><span class="sku-tag">QDR-04</span></td>
+              <td>
+                <strong>Quadro de Comando IoT</strong>
+                <div class="caption">Painel trifásico automatizado para até 4 motores</div>
+              </td>
+              <td>Painéis</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES pendente</td>
+              <td><i class="fa-regular fa-image" aria-hidden="true"></i> 1 Foto</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Quadro de Comando IoT">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Quadro de Comando IoT">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="sensores">
+              <td><span class="sku-tag">SNS-OPT</span></td>
+              <td>
+                <strong>Sensor Óptico O2 Reposição</strong>
+                <div class="caption">Tampa sensora e refil de alta estabilidade</div>
+              </td>
+              <td>Sensores</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><i class="fa-regular fa-image" aria-hidden="true"></i> 2 Fotos</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Sensor Óptico O2 Reposição">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Sensor Óptico O2 Reposição">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="telemetria">
+              <td><span class="sku-tag">IOT-RAD</span></td>
+              <td>
+                <strong>Central Rádio IoT Rural</strong>
+                <div class="caption">Transmissor de longo alcance até 5km</div>
+              </td>
+              <td>Telemetria</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td><i class="fa-regular fa-image" aria-hidden="true"></i> 2 Fotos</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" aria-label="Editar Central Rádio IoT Rural">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Central Rádio IoT Rural">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+
