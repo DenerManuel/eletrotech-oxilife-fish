@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de Produtos Eletrotech: Sonda Oxilife Fish, Oxímetro Manual, Alarme Wi-Fi, Motores Hércules, Materiais Elétricos e Linha Zagonel.">
+  <title>Catálogo de Produtos | Eletrotech &amp; Oxilife Fish</title>
+  <link rel="icon" type="image/png" href="assets/logo_eletrotech_rv.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Cabeçalho Institucional -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Eletrotech Home">
+        <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo">
+      </a>
+
+      <nav class="site-nav" data-site-nav aria-label="Navegação Principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+          <li><a href="quem-somos.html" class="nav-link" data-i18n="nav.about">Quem Somos</a></li>
+          <li><a href="oxilife-fish.html" class="nav-link" data-i18n="nav.oxilife">Oxilife Fish</a></li>
+          <li><a href="catalogo.html" class="nav-link active" aria-current="page" data-i18n="nav.catalog">Catálogo</a></li>
+          <li><a href="servicos.html" class="nav-link" data-i18n="nav.services">Serviços</a></li>
+          <li><a href="faq.html" class="nav-link" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="contato.html" class="nav-link" data-i18n="nav.contact">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher" role="group" aria-label="Seleção de idioma">
+          <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Abrir menu de navegação">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Catálogo Técnico de Produtos -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+            <span data-i18n="catalog.tag">Equipamentos, Motores &amp; Instalações Elétricas</span>
+          </span>
+          <h1 data-i18n="catalog.title">Catálogo de Produtos e Sistemas</h1>
+          <p class="body-text">
+            Soluções completas em automação, motores, elétrica e instrumentação aquícola. Consulte nossa engenharia diretamente pelo WhatsApp.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-pills" role="group" aria-label="Filtrar produtos por categoria">
+            <button type="button" class="filter-btn active" data-filter-category="all" data-i18n="catalog.filter_all">Todos os Produtos</button>
+            <button type="button" class="filter-btn" data-filter-category="sondas" data-i18n="catalog.filter_sondas">Sondas &amp; Oxímetros</button>
+            <button type="button" class="filter-btn" data-filter-category="paineis" data-i18n="catalog.filter_paineis">Painéis &amp; Elétrica</button>
+            <button type="button" class="filter-btn" data-filter-category="motores" data-i18n="catalog.filter_motores">Motores Hércules</button>
+            <button type="button" class="filter-btn" data-filter-category="zagonel" data-i18n="catalog.filter_zagonel">Zagonel</button>
+          </div>
+
+          <div class="search-box">
+            <input type="search" class="search-input" data-search-input data-i18n-placeholder="catalog.search_placeholder" placeholder="Buscar oxímetro, motor, disjuntor, chuveiro..." aria-label="Buscar equipamento no catálogo">
+          </div>
+        </div>
+
+        <!-- Container marcado para integração futura com Sanity CMS -->
+        <div class="grid-3" data-sanity-list="produtos">
+          <!-- Produto 1: Sonda Oxilife Fish -->
+          <article class="card-product" data-item-category="sondas" data-search-text="Sonda Oxilife Fish OXI-01 oxigenio dissolvido temperatura aeradores piscicultura">
+            <div class="card-product__content">
+              <div class="product-thumb">
+                <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                <span class="caption">Foto pronta para Sanity CMS</span>
+              </div>
+              <div class="card-meta-row">
+                <span class="badge-status badge-status--success">Destaque</span>
+                <span class="sku-tag">SKU: OXI-01</span>
+              </div>
+              <h2 class="card-title">Sonda Oxilife Fish</h2>
+              <p class="card-product__body">
+                Leitura contínua de O₂ dissolvido e temperatura com proteção contra algas e acionamento inteligente de até 4 grupos de aeradores.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20a%20Sonda%20Oxilife%20Fish%20(SKU%3A%20OXI-01)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Produto 2: Oxímetro Manual -->
+          <article class="card-product" data-item-category="sondas" data-search-text="Oximetro Manual OXI-MANUAL portatil oxigenio dissolvido temperatura tanques">
+            <div class="card-product__content">
+              <div class="product-thumb">
+                <i class="fa-solid fa-gauge" aria-hidden="true"></i>
+                <span class="caption">Foto pronta para Sanity CMS</span>
+              </div>
+              <div class="card-meta-row">
+                <span class="section-tag">Portátil</span>
+                <span class="sku-tag">SKU: OXI-MANUAL</span>
+              </div>
+              <h2 class="card-title">Oxímetro Manual</h2>
+              <p class="card-product__body">
+                Aparelho portátil de alta precisão para medição rápida de oxigênio dissolvido, temperatura e saturação em tanques de peixes.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20o%20Ox%C3%ADmetro%20Manual%20(SKU%3A%20OXI-MANUAL)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Produto 3: Sistema de Alarme para Piscicultura -->
+          <article class="card-product" data-item-category="sondas" data-search-text="Sistema de Alarme para Piscicultura ALM-WIFI sem fio wifi aplicativo alerta">
+            <div class="card-product__content">
+              <div class="product-thumb">
+                <i class="fa-solid fa-bell" aria-hidden="true"></i>
+                <span class="caption">Foto pronta para Sanity CMS</span>
+              </div>
+              <div class="card-meta-row">
+                <span class="section-tag">Wi-Fi &amp; App</span>
+                <span class="sku-tag">SKU: ALM-WIFI</span>
+              </div>
+              <h2 class="card-title">Sistema de Alarme para Piscicultura</h2>
+              <p class="card-product__body">
+                Sistema de monitoramento e alerta com funcionamento totalmente sem fio e Wi-Fi integrado, conectado diretamente a aplicativo para celular.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20o%20Sistema%20de%20Alarme%20para%20Piscicultura%20(SKU%3A%20ALM-WIFI)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Produto 4: Motores Elétricos Hércules -->
+          <article class="card-product" data-item-category="motores" data-search-text="Motores Eletricos Hercules MOT-HERCULES motor rural industrial rpm">
+            <div class="card-product__content">
+              <div class="product-thumb">
+                <i class="fa-solid fa-gears" aria-hidden="true"></i>
+                <span class="caption">Foto pronta para Sanity CMS</span>
+              </div>
+              <div class="card-meta-row">
+                <span class="section-tag">Novos</span>
+                <span class="sku-tag">SKU: MOT-HERCULES</span>
+              </div>
+              <h2 class="card-title">Motores Elétricos Hércules</h2>
+              <p class="card-product__body">
+                Motores elétricos Hércules novos de diferentes modelos, potências e rotações por minuto (RPM) para aplicações rurais e industriais.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20Motores%20El%C3%A9tricos%20H%C3%A9rcules%20(SKU%3A%20MOT-HERCULES)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Produto 5: Materiais para Painéis e Instalações Elétricas -->
+          <article class="card-product" data-item-category="paineis" data-search-text="Materiais para Paineis Instalacoes MAT-ELETRO contator rele termico disjuntor timer pvc metal">
+            <div class="card-product__content">
+              <div class="product-thumb">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                <span class="caption">Foto pronta para Sanity CMS</span>
+              </div>
+              <div class="card-meta-row">
+                <span class="section-tag">Painéis &amp; Automação</span>
+                <span class="sku-tag">SKU: MAT-ELETRO</span>
+              </div>
+              <h2 class="card-title">Materiais para Painéis &amp; Instalações</h2>
+              <p class="card-product__body">
+                Variedade completa: contatores, relés térmicos, disjuntores, chaves de duas e três posições, timers, além de painéis em PVC e metal.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20materiais%20e%20componentes%20el%C3%A9tricos%20(SKU%3A%20MAT-ELETRO)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Produto 6: Produtos Zagonel -->
+          <article class="card-product" data-item-category="zagonel" data-search-text="Chuveiros Torneiras Zagonel ZAG-LINHA hidraulica chuveiro torneira eletrica">
+            <div class="card-product__content">
+              <div class="product-thumb product-thumb--photo">
+                <img src="assets/chuveiro-zagonel.jpg" alt="Chuveiro elétrico Zagonel" class="product-thumb__img">
+              </div>
+              <div class="card-meta-row">
+                <span class="section-tag">Hidráulica &amp; Conforto</span>
+                <span class="sku-tag">SKU: ZAG-LINHA</span>
+              </div>
+              <h2 class="card-title">Chuveiros e Torneiras Zagonel</h2>
+              <p class="card-product__body">
+                Diversos produtos da marca Zagonel, incluindo chuveiros, torneiras elétricas e acessórios de diferentes modelos e acabamentos.
+              </p>
+            </div>
+            <div class="card-footer-row">
+              <span class="price-consult" data-i18n="catalog.consult_price">Preço sob consulta técnica</span>
+              <a href="https://wa.me/554599241306?text=Ol%C3%A1%2C%20gostaria%20de%20cotar%20produtos%20Zagonel%20(SKU%3A%20ZAG-LINHA)." class="btn-whatsapp btn-block" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn.quote_whatsapp">Cotar no WhatsApp</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state is-hidden" data-empty-state>
+          <p class="body-text" data-i18n="catalog.empty">Nenhum produto encontrado para essa busca ou categoria.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Padronizado -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-box" aria-label="Eletrotech Sistemas Elétricos Home">
+            <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo">
+          </a>
+          <p class="caption" data-i18n="footer.about">
+            Soluções completas em engenharia elétrica e tecnologia patenteada de monitoramento contínuo para tanques de piscicultura.
+          </p>
+          <div class="social-row">
+            <a href="https://www.instagram.com/eletrotechmarechal?obrf=ZDFnN3U0bTl0Nmxj" class="social-link" aria-label="Instagram Eletrotech" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1921reCyhZ/" class="social-link" aria-label="Facebook Eletrotech" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/554599241306" class="social-link" aria-label="WhatsApp Eletrotech" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-i18n="footer.products_title">Produtos &amp; Sistemas</h3>
+          <ul class="footer-links">
+            <li><a href="oxilife-fish.html">Sonda Oxilife Fish (OXI-01)</a></li>
+            <li><a href="catalogo.html">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
+            <li><a href="catalogo.html">Motores Elétricos Hércules</a></li>
+            <li><a href="catalogo.html">Materiais Elétricos &amp; Zagonel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-i18n="footer.services_title">Engenharia &amp; Serviços</h3>
+          <ul class="footer-links">
+            <li><a href="servicos.html">Automação de Viveiros</a></li>
+            <li><a href="servicos.html">Motores e Bombas D&rsquo;água</a></li>
+            <li><a href="servicos.html">Plantão Emergencial 24h</a></li>
+            <li><a href="faq.html">Calibração Periódica de Sondas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading" data-i18n="footer.contact_title">Matriz &amp; Atendimento</h3>
+          <div class="footer-meta-list">
+            <p class="caption">R. Darley Germano Bregolli, 513 - Vila Gaúcha, Mal. Cândido Rondon - PR, 85960-000</p>
+            <p class="caption">WhatsApp: (45) 9924-1306 &bull; contato@eletrotech.com.br</p>
+            <p class="caption" data-i18n="footer.hours">Segunda a Sexta: 07:30 às 18:00</p>
+            <p class="caption" data-i18n="footer.languages">Idiomas: Português | Español | English</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=R.+Darley+Germano+Bregolli%2C+513+-+Vila+Ga%C3%BAcha%2C+Marechal+C%C3%A2ndido+Rondon+-+PR%2C+85960-000" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.maps">Ver localização no Google Maps</a>
+            <a href="admin/login.html" class="caption tap-target footer-inline-link" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-i18n="footer.rights">&copy; 2026 Eletrotech Sistemas Elétricos / Oxilife Fish. Todos os direitos reservados.</span>
+        <span data-i18n="footer.patent">Patente Registrada &bull; Engenharia Eletrotécnica Especializada</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/554599241306" class="btn-whatsapp btn-whatsapp--float" aria-label="Atendimento imediato via WhatsApp" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="js/traducoes.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/sanity.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel administrativo Eletrotech — Gestão de produtos e sondas.">
+  <title>Gestão de Produtos &amp; Sondas | Eletrotech Admin</title>
+  <link rel="icon" type="image/png" href="../assets/logo_eletrotech_rv.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Barra Lateral Administrativa -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <div class="brand">
+          <span class="brand-mark brand-mark--aqua" aria-hidden="true">E</span>
+          <span class="brand-text">
+            <span class="brand-name">Eletrotech Admin</span>
+            <span class="brand-sub">Admin Master</span>
+          </span>
+        </div>
+
+        <button type="button" class="admin-nav-toggle" data-admin-nav-toggle aria-expanded="false" aria-label="Abrir menu administrativo">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="admin-sidebar-body" data-admin-sidebar-body>
+        <nav class="admin-nav" aria-label="Menu Administrativo">
+          <a href="produtos.html" class="admin-nav-link active" aria-current="page">
+            <i class="fa-solid fa-box" aria-hidden="true"></i>
+            <span>Produtos &amp; Sondas</span>
+          </a>
+          <a href="servicos.html" class="admin-nav-link">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span>Serviços Prestados</span>
+          </a>
+          <a href="depoimentos.html" class="admin-nav-link">
+            <i class="fa-solid fa-comments" aria-hidden="true"></i>
+            <span>Depoimentos</span>
+          </a>
+          <a href="faq.html" class="admin-nav-link">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+            <span>FAQ &amp; Dúvidas</span>
+          </a>
+        </nav>
+
+        <div class="stack">
+          <a href="../index.html" class="admin-nav-link">
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            <span>Ver Website</span>
+          </a>
+          <a href="login.html" class="admin-nav-link">
+            <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+            <span>Sair (Logout)</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal CRUD -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>Produtos &amp; Sondas</h1>
+          <p class="caption">Sincronizado com os 6 produtos oficiais do catálogo público e preparado para o Sanity Studio.</p>
+        </div>
+        <button type="button" class="btn-primary" data-action="add" data-item-name="" data-item-desc="">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          <span>Adicionar Novo Produto</span>
+        </button>
+      </header>
+
+      <div class="filter-bar">
+        <div class="filter-pills" role="group" aria-label="Filtrar por categoria">
+          <button type="button" class="filter-btn active" data-filter-category="all">Todas as Categorias</button>
+          <button type="button" class="filter-btn" data-filter-category="sondas">Sondas &amp; Oxímetros</button>
+          <button type="button" class="filter-btn" data-filter-category="paineis">Painéis &amp; Elétrica</button>
+          <button type="button" class="filter-btn" data-filter-category="motores">Motores Hércules</button>
+          <button type="button" class="filter-btn" data-filter-category="zagonel">Zagonel</button>
+        </div>
+
+        <div class="search-box">
+          <input type="search" class="search-input" data-search-input placeholder="Filtrar por nome, SKU ou categoria..." aria-label="Filtrar produtos">
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">SKU</th>
+              <th scope="col">Nome do Produto</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Destaque</th>
+              <th scope="col">Traduções Ativas</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-item-category="sondas">
+              <td><span class="sku-tag">OXI-01</span></td>
+              <td>
+                <strong>Sonda Oxilife Fish</strong>
+                <div class="caption">Monitoramento contínuo O₂ e temperatura com acionamento de aeradores</div>
+              </td>
+              <td>Sondas &amp; Oxímetros</td>
+              <td><span class="badge-status badge-status--success">SIM</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Sonda Oxilife Fish (OXI-01)" data-item-desc="Monitoramento contínuo de oxigênio dissolvido e temperatura em tanques escavados." aria-label="Editar Sonda Oxilife Fish">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Sonda Oxilife Fish">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="sondas">
+              <td><span class="sku-tag">OXI-MANUAL</span></td>
+              <td>
+                <strong>Oxímetro Manual</strong>
+                <div class="caption">Aparelho portátil de medição rápida de oxigênio e saturação</div>
+              </td>
+              <td>Sondas &amp; Oxímetros</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Oxímetro Manual (OXI-MANUAL)" data-item-desc="Medição portátil de oxigênio dissolvido, temperatura e saturação." aria-label="Editar Oxímetro Manual">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Oxímetro Manual">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="sondas">
+              <td><span class="sku-tag">ALM-WIFI</span></td>
+              <td>
+                <strong>Sistema de Alarme para Piscicultura</strong>
+                <div class="caption">Sistema sem fio e Wi-Fi integrado com alertas em aplicativo</div>
+              </td>
+              <td>Sondas &amp; Oxímetros</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Sistema de Alarme para Piscicultura (ALM-WIFI)" data-item-desc="Alertas em tempo real por aplicativo via Wi-Fi sem fio." aria-label="Editar Sistema de Alarme para Piscicultura">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Sistema de Alarme para Piscicultura">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="motores">
+              <td><span class="sku-tag">MOT-HERCULES</span></td>
+              <td>
+                <strong>Motores Elétricos Hércules</strong>
+                <div class="caption">Motores novos de diversas potências e RPM para uso rural e industrial</div>
+              </td>
+              <td>Motores Hércules</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Motores Elétricos Hércules (MOT-HERCULES)" data-item-desc="Motores elétricos novos em diversas potências e rotações (RPM)." aria-label="Editar Motores Elétricos Hércules">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Motores Elétricos Hércules">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="paineis">
+              <td><span class="sku-tag">MAT-ELETRO</span></td>
+              <td>
+                <strong>Materiais para Painéis &amp; Instalações</strong>
+                <div class="caption">Contatores, relés térmicos, disjuntores, chaves, timers e painéis PVC/metal</div>
+              </td>
+              <td>Painéis &amp; Elétrica</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Materiais para Painéis & Instalações (MAT-ELETRO)" data-item-desc="Componentes completos para automação e quadros elétricos." aria-label="Editar Materiais para Painéis e Instalações">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Materiais para Painéis e Instalações">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-item-category="zagonel">
+              <td><span class="sku-tag">ZAG-LINHA</span></td>
+              <td>
+                <strong>Chuveiros e Torneiras Zagonel</strong>
+                <div class="caption">Linha de chuveiros, torneiras elétricas e acessórios Zagonel</div>
+              </td>
+              <td>Zagonel</td>
+              <td><span class="sku-tag">NÃO</span></td>
+              <td>PT &check; | ES &check; | EN &check;</td>
+              <td>
+                <div class="action-group">
+                  <button type="button" class="btn-action" data-action="edit" data-item-name="Chuveiros e Torneiras Zagonel (ZAG-LINHA)" data-item-desc="Linha completa de chuveiros e torneiras elétricas Zagonel." aria-label="Editar Chuveiros e Torneiras Zagonel">
+                    <i class="fa-solid fa-pen" aria-hidden="true"></i>
+                    <span>Editar</span>
+                  </button>
+                  <button type="button" class="btn-action btn-action--danger" data-action="delete" aria-label="Excluir Chuveiros e Torneiras Zagonel">
+                    <i class="fa-solid fa-trash" aria-hidden="true"></i>
+                    <span>Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empty-state is-hidden" data-empty-state>
+        <p class="body-text">Nenhum produto encontrado para essa busca ou categoria.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Demonstrativo -->
+  <div class="admin-modal" data-admin-modal role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="admin-modal__dialog">
+      <div class="admin-modal__header">
+        <h2 id="modal-title" data-admin-modal-title>Cadastro Demonstrativo</h2>
+        <button type="button" class="btn-action" data-modal-close aria-label="Fechar janela">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <form data-admin-modal-form>
+        <div class="form-group">
+          <label for="modal-item-name" class="form-label">Nome / Título do Produto</label>
+          <input type="text" id="modal-item-name" class="form-control" data-admin-modal-input required>
+        </div>
+        <div class="form-group">
+          <label for="modal-item-desc" class="form-label">Descrição Resumida (PT)</label>
+          <textarea id="modal-item-desc" class="form-control" data-admin-modal-desc required></textarea>
+        </div>
+        <div class="form-feedback" data-admin-modal-notice role="status"></div>
+        <div class="admin-modal__actions">
+          <button type="button" class="btn-secondary" data-modal-close>Fechar</button>
+          <button type="submit" class="btn-primary">Testar Salvamento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/traducoes.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
