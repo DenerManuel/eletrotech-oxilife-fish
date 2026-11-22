@@ -1,89 +1,44 @@
 # Eletrotech / Oxilife Fish
 
-Site institucional dinâmico e catálogo da **Eletrotech / Oxilife Fish**, desenvolvido para apresentar a empresa, seus serviços, produtos e formas de contato.
+Site institucional dinâmico da **Eletrotech Sistemas Elétricos** e catálogo da tecnologia **Oxilife Fish**, desenvolvido para apresentar a empresa, seus serviços, produtos e canais de contato.
 
-## 🌐 Sobre o projeto
+## Sobre a Eletrotech
 
-O projeto reúne as páginas institucionais da marca em uma experiência simples, responsiva e organizada. O site apresenta informações sobre a empresa, produtos Oxilife Fish, serviços oferecidos, catálogo, dúvidas frequentes e canais de atendimento.
+Com atuação em Marechal Cândido Rondon — Paraná, a Eletrotech reúne engenharia elétrica, automação industrial e soluções voltadas à piscicultura e ao agronegócio aquícola.
 
-## 📄 Páginas
+Desde 2018, a empresa atua com:
 
-- **Início** — apresentação principal da Eletrotech / Oxilife Fish
-- **Quem somos** — história e informações institucionais
-- **Serviços** — soluções e atendimentos disponíveis
-- **Oxilife Fish** — informações sobre a linha de produtos
-- **Catálogo** — produtos e soluções disponíveis
-- **FAQ** — perguntas frequentes
-- **Contato** — canais de atendimento e informações de contato
+- Soluções elétricas e projetos industriais
+- Manutenção de motores e bombas d'água
+- Automação de viveiros e aeradores
+- Instalações rurais, comerciais e industriais
+- Atendimento técnico emergencial
 
-## 🛠️ Tecnologias
+## Oxilife Fish
 
-- HTML5
-- CSS3
-- JavaScript
-- TypeScript
-- GitHub Pages
+A **Oxilife Fish** é uma tecnologia patenteada para monitoramento contínuo de tanques de piscicultura.
 
-## 📁 Estrutura do projeto
+A sonda oferece:
 
-```text
-.
-├── assets/          # Recursos públicos e mídias
-├── css/             # Folhas de estilo
-├── js/              # Scripts JavaScript
-├── contexto/        # Arquivos de contexto do projeto
-├── studio/          # Recursos ou arquivos do ambiente de desenvolvimento
-├── index.html       # Página inicial
-├── quem-somos.html  # Página institucional
-├── servicos.html    # Página de serviços
-├── oxilife-fish.html # Página da linha Oxilife Fish
-├── catalogo.html    # Catálogo de produtos
-├── faq.html         # Perguntas frequentes
-└── contato.html     # Página de contato
-```
+- Monitoramento de oxigênio dissolvido
+- Monitoramento de temperatura
+- Alertas sonoros e remotos
+- Acionamento inteligente de aeradores
+- Segurança contínua para viveiros escavados
 
-## 🚀 Executando localmente
+## Conteúdo do site
 
-Como o site é composto por arquivos estáticos, não é necessário instalar dependências.
+- **Início** — apresentação da Eletrotech e da tecnologia Oxilife Fish
+- **Quem Somos** — trajetória, fundadores e atuação da empresa
+- **Oxilife Fish** — informações sobre a sonda e seus diferenciais
+- **Catálogo** — equipamentos, materiais e soluções disponíveis
+- **Serviços** — automação, manutenção, instalações e atendimento emergencial
+- **FAQ** — respostas às dúvidas mais frequentes
+- **Contato** — atendimento direto e informações da empresa
 
-### Opção 1: Abrir diretamente
+## Atendimento
 
-Abra o arquivo `index.html` em seu navegador.
+Matriz em Marechal Cândido Rondon — PR.
 
-### Opção 2: Servidor local
-
-Com Python instalado:
-
-```bash
-python -m http.server 8000
-```
-
-Depois, acesse:
-
-```text
-http://localhost:8000
-```
-
-## 🌍 Publicação
-
-Este projeto está configurado para ser publicado com o **GitHub Pages**.
-
-## 📦 Desenvolvimento
-
-Ao alterar os arquivos do projeto:
-
-1. Faça as alterações necessárias.
-2. Teste todas as páginas em navegador desktop e mobile.
-3. Confira os links internos e recursos externos.
-4. Envie as mudanças para a branch `main`.
-
-## 📜 Licença
-
-Licença não definida para este projeto.
-
-## 👤 Autor
-
-Dener Manuel
-
-- GitHub: [@DenerManuel](https://github.com/DenerManuel)
-- Repositório: [eletrotech-oxilife-fish](https://github.com/DenerManuel/eletrotech-oxilife-fish)
+- WhatsApp: (45) 9924-1306
+- E-mail: contato@eletrotech.com.br
