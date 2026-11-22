@@ -5,16 +5,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
-  initAdminSidebar();
   initLanguageSwitcher();
   initCatalogFilters();
   initContactForm();
-  initAdminLogin();
-  initAdminCrudActions();
 });
 
+function getDictValue(key, fallback) {
+  const lang = document.documentElement.getAttribute('data-selected-lang') || 'pt';
+  if (typeof TRADUCOES !== 'undefined' && TRADUCOES[lang] && TRADUCOES[lang][key]) {
+    return TRADUCOES[lang][key];
+  }
+  return fallback;
+}
+
+function normalizeSearchText(text) {
+  return String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
 /* ==========================================================================
-   01. MENU DE NAVEGAÇÃO MOBILE (SITE PÚBLICO)
+   01. MENU DE NAVEGAÇÃO MOBILE
    ========================================================================== */
 function initMobileNav() {
   const toggleBtn = document.querySelector('[data-nav-toggle]');
@@ -71,35 +83,16 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   02. MENU RECOLHÍVEL DO PAINEL ADMIN NO CELULAR
-   ========================================================================== */
-function initAdminSidebar() {
-  const adminToggle = document.querySelector('[data-admin-nav-toggle]');
-  const sidebarBody = document.querySelector('[data-admin-sidebar-body]');
-  if (!adminToggle || !sidebarBody) return;
-
-  const icon = adminToggle.querySelector('i');
-
-  adminToggle.addEventListener('click', () => {
-    const isOpen = sidebarBody.classList.toggle('is-open');
-    adminToggle.setAttribute('aria-expanded', String(isOpen));
-    if (icon) {
-      icon.classList.toggle('fa-bars', !isOpen);
-      icon.classList.toggle('fa-xmark', isOpen);
-    }
-  });
-}
-
-/* ==========================================================================
-   03. SELETOR DE IDIOMAS (PT / ES / EN) COM SALVAMENTO EM localStorage
+   02. SELETOR DE IDIOMAS (PT / ES / EN) COM SALVAMENTO EM localStorage
    ========================================================================== */
 function initLanguageSwitcher() {
   const langButtons = document.querySelectorAll('[data-lang]');
   const htmlLangMap = { pt: 'pt-BR', es: 'es', en: 'en' };
 
   const applyLanguage = (lang) => {
-    const chosenLang = TRADUCOES && TRADUCOES[lang] ? lang : 'pt';
-    const dict = typeof TRADUCOES !== 'undefined' ? TRADUCOES[chosenLang] : null;
+    const hasDict = typeof TRADUCOES !== 'undefined';
+    const chosenLang = hasDict && TRADUCOES[lang] ? lang : 'pt';
+    const dict = hasDict ? TRADUCOES[chosenLang] : null;
 
     document.documentElement.setAttribute('lang', htmlLangMap[chosenLang] || 'pt-BR');
     document.documentElement.setAttribute('data-selected-lang', chosenLang);
@@ -113,7 +106,7 @@ function initLanguageSwitcher() {
 
     if (!dict) return;
 
-    // Atualiza textos fixos (sem apagar ícones porque cada texto fica no próprio <span>)
+    // Atualiza textos fixos sem apagar ícones (cada texto fica no próprio <span>)
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (dict[key]) {
@@ -121,7 +114,7 @@ function initLanguageSwitcher() {
       }
     });
 
-    // Atualiza placeholders de inputs/campos de busca
+    // Atualiza placeholders de campos de busca e formulários
     document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       const key = el.getAttribute('data-i18n-placeholder');
       if (dict[key]) {
@@ -133,39 +126,47 @@ function initLanguageSwitcher() {
   };
 
   // Restaura o último idioma escolhido pelo usuário
-  const savedLang = window.localStorage.getItem('eletrotech_lang') || 'pt';
+  let savedLang = 'pt';
+  try {
+    savedLang = window.localStorage.getItem('eletrotech_lang') || 'pt';
+  } catch {
+    savedLang = 'pt';
+  }
   applyLanguage(savedLang);
 
   langButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const newLang = btn.getAttribute('data-lang') || 'pt';
-      window.localStorage.setItem('eletrotech_lang', newLang);
+      try {
+        window.localStorage.setItem('eletrotech_lang', newLang);
+      } catch {
+        // Ignora se localStorage estiver bloqueado
+      }
       applyLanguage(newLang);
     });
   });
 }
 
 /* ==========================================================================
-   04. FILTROS E BUSCA (USADO EM CATÁLOGO E NO PAINEL ADMIN)
+   03. FILTROS E BUSCA DO CATÁLOGO (SEM SENSIBILIDADE A ACENTOS)
    ========================================================================== */
 function initCatalogFilters() {
-  const filterBtns = document.querySelectorAll('[data-filter-category]');
+  const pillsContainer = document.querySelector('.filter-pills');
   const searchInput = document.querySelector('[data-search-input]');
   const emptyState = document.querySelector('[data-empty-state]');
 
-  if (!filterBtns.length && !searchInput) return;
+  if (!pillsContainer && !searchInput) return;
 
   let currentCategory = 'all';
   let currentQuery = '';
 
   const getSearchableText = (item) => {
-    // Se existir atributo próprio de busca, usa ele; senão lê os textos principais ignorando botões
     const customText = item.getAttribute('data-search-text');
-    if (customText) return customText.toLowerCase();
+    if (customText) return normalizeSearchText(customText);
 
     const clone = item.cloneNode(true);
-    clone.querySelectorAll('button, .btn-whatsapp, .action-group').forEach((el) => el.remove());
-    return clone.textContent.toLowerCase();
+    clone.querySelectorAll('button, .btn-whatsapp').forEach((el) => el.remove());
+    return normalizeSearchText(clone.textContent);
   };
 
   const applyFilters = () => {
@@ -188,27 +189,48 @@ function initCatalogFilters() {
     }
   };
 
-  document.addEventListener('eletrotech:catalog-updated', applyFilters);
+  // Mantém a categoria ativa sincronizada quando os botões são atualizados pelo Sanity
+  document.addEventListener('eletrotech:catalog-updated', () => {
+    if (pillsContainer) {
+      const activeBtn = pillsContainer.querySelector(`[data-filter-category="${CSS.escape(currentCategory)}"]`);
+      if (!activeBtn) {
+        currentCategory = 'all';
+      }
+      pillsContainer.querySelectorAll('[data-filter-category]').forEach((btn) => {
+        const isActive = (btn.getAttribute('data-filter-category') || 'all') === currentCategory;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+    applyFilters();
+  });
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
+  if (pillsContainer) {
+    pillsContainer.addEventListener('click', (event) => {
+      const btn = event.target.closest('[data-filter-category]');
+      if (!btn) return;
+
+      pillsContainer.querySelectorAll('[data-filter-category]').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       currentCategory = btn.getAttribute('data-filter-category') || 'all';
       applyFilters();
     });
-  });
+  }
 
   if (searchInput) {
     searchInput.addEventListener('input', (event) => {
-      currentQuery = event.target.value.trim().toLowerCase();
+      currentQuery = normalizeSearchText(event.target.value.trim());
       applyFilters();
     });
   }
 }
 
 /* ==========================================================================
-   05. FORMULÁRIO DE CONTATO + BOTÃO PARA WHATSAPP PRÉ-PREENCHIDO
+   04. FORMULÁRIO DE CONTATO + BOTÃO PARA WHATSAPP PRÉ-PREENCHIDO
    ========================================================================== */
 function initContactForm() {
   const form = document.querySelector('[data-contact-form]');
@@ -228,27 +250,46 @@ function initContactForm() {
     const cidade = (form.querySelector('#cidade')?.value || '').trim();
     const mensagem = (form.querySelector('#mensagem')?.value || '').trim();
 
+    const intro = getDictValue('contact.wa_intro', 'Olá, Eletrotech! Solicitação de orçamento via site:');
+    const lNome = getDictValue('contact.wa_name', 'Nome');
+    const lFone = getDictValue('contact.wa_phone', 'Telefone');
+    const lEmail = getDictValue('contact.wa_email', 'E-mail');
+    const lCidade = getDictValue('contact.wa_city', 'Cidade/Estado');
+    const lMsg = getDictValue('contact.wa_message', 'Mensagem');
+
     const textoWhatsapp = encodeURIComponent(
-      `Olá, Eletrotech! Solicitação de orçamento via site:\n` +
-      `• Nome: ${nome}\n` +
-      `• Telefone: ${telefone}\n` +
-      `• E-mail: ${email}\n` +
-      `• Cidade/Estado: ${cidade}\n` +
-      `• Mensagem: ${mensagem}`
+      `${intro}\n` +
+      `• ${lNome}: ${nome}\n` +
+      `• ${lFone}: ${telefone}\n` +
+      `• ${lEmail}: ${email}\n` +
+      `• ${lCidade}: ${cidade}\n` +
+      `• ${lMsg}: ${mensagem}`
     );
 
     if (feedback) {
       feedback.innerHTML = '';
 
       const info = document.createElement('p');
-      info.textContent = 'Solicitação registrada com sucesso! Se preferir agilizar ainda mais, envie os dados preenchidos direto no nosso WhatsApp:';
+      info.textContent = getDictValue(
+        'contact.feedback_success',
+        'Solicitação registrada com sucesso! Para enviar agora para nossa equipe técnica, clique no botão abaixo:'
+      );
 
       const waLink = document.createElement('a');
       waLink.href = `https://wa.me/554599241306?text=${textoWhatsapp}`;
       waLink.target = '_blank';
       waLink.rel = 'noopener noreferrer';
       waLink.className = 'btn-whatsapp';
-      waLink.innerHTML = '<i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Enviar Dados no WhatsApp</span>';
+
+      const waIcon = document.createElement('i');
+      waIcon.className = 'fa-brands fa-whatsapp';
+      waIcon.setAttribute('aria-hidden', 'true');
+
+      const waLabel = document.createElement('span');
+      waLabel.textContent = getDictValue('contact.feedback_wa_btn', 'Enviar Dados no WhatsApp');
+
+      waLink.appendChild(waIcon);
+      waLink.appendChild(waLabel);
 
       feedback.appendChild(info);
       feedback.appendChild(waLink);
@@ -256,110 +297,5 @@ function initContactForm() {
     }
 
     form.reset();
-  });
-}
-
-/* ==========================================================================
-   06. LOGIN DE DEMONSTRAÇÃO DO PAINEL ADMIN (PARA APRESENTAÇÃO)
-   ========================================================================== */
-function initAdminLogin() {
-  const loginForm = document.querySelector('[data-login-form]');
-  const errorBox = document.querySelector('[data-login-error]');
-  if (!loginForm) return;
-
-  const DEMO_EMAIL = 'admin@eletrotech.com.br';
-  const DEMO_PASS = '123456';
-
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (errorBox) errorBox.classList.remove('is-visible');
-
-    if (!loginForm.checkValidity()) {
-      loginForm.reportValidity();
-      return;
-    }
-
-    const email = (loginForm.querySelector('#admin-email')?.value || '').trim().toLowerCase();
-    const password = loginForm.querySelector('#admin-password')?.value || '';
-
-    if (email !== DEMO_EMAIL || password !== DEMO_PASS) {
-      if (errorBox) {
-        errorBox.textContent = 'E-mail ou senha incorretos. Use as credenciais de demonstração indicadas abaixo.';
-        errorBox.classList.add('is-visible');
-      }
-      return;
-    }
-
-    window.location.href = 'produtos.html';
-  });
-}
-
-/* ==========================================================================
-   07. AÇÕES DO PAINEL ADMIN (EXCLUIR E MODAL DEMONSTRATIVO DE CRIAR/EDITAR)
-   ========================================================================== */
-function initAdminCrudActions() {
-  const modal = document.querySelector('[data-admin-modal]');
-  const modalTitle = document.querySelector('[data-admin-modal-title]');
-  const modalInput = document.querySelector('[data-admin-modal-input]');
-  const modalDesc = document.querySelector('[data-admin-modal-desc]');
-  const modalForm = document.querySelector('[data-admin-modal-form]');
-  const modalNotice = document.querySelector('[data-admin-modal-notice]');
-
-  const closeModal = () => {
-    if (!modal) return;
-    modal.classList.remove('is-open');
-    if (modalNotice) modalNotice.classList.remove('is-visible');
-  };
-
-  document.addEventListener('click', (event) => {
-    // Botão Excluir (funciona em linhas de tabela e nos cards de depoimento)
-    const deleteBtn = event.target.closest('[data-action="delete"]');
-    if (deleteBtn) {
-      const row = deleteBtn.closest('tr, .card-testimonial');
-      if (row && window.confirm('Confirma a exclusão deste registro na demonstração?')) {
-        row.remove();
-      }
-      return;
-    }
-
-    // Botão Adicionar ou Editar -> abre modal demonstrativo simples
-    const modalBtn = event.target.closest('[data-action="add"], [data-action="edit"]');
-    if (modalBtn && modal) {
-      const isEdit = modalBtn.getAttribute('data-action') === 'edit';
-      const itemName = modalBtn.getAttribute('data-item-name') || '';
-      const itemDesc = modalBtn.getAttribute('data-item-desc') || '';
-
-      if (modalTitle) {
-        modalTitle.textContent = isEdit ? 'Editar Registro (Demonstração)' : 'Novo Cadastro (Demonstração)';
-      }
-      if (modalInput) modalInput.value = itemName;
-      if (modalDesc) modalDesc.value = itemDesc;
-      if (modalNotice) modalNotice.classList.remove('is-visible');
-
-      modal.classList.add('is-open');
-      if (modalInput) modalInput.focus();
-      return;
-    }
-
-    // Fechar modal pelo botão ou clicando fora
-    if (event.target.closest('[data-modal-close]') || event.target === modal) {
-      closeModal();
-    }
-  });
-
-  if (modalForm) {
-    modalForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (modalNotice) {
-        modalNotice.textContent = 'Registro validado na demonstração! Na próxima etapa, o Sanity Studio salvará esses dados no banco em nuvem.';
-        modalNotice.classList.add('is-visible');
-      }
-    });
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal && modal.classList.contains('is-open')) {
-      closeModal();
-    }
   });
 }

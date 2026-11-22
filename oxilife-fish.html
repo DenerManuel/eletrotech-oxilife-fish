@@ -17,7 +17,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Eletrotech Home">
-        <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo">
+        <picture>
+          <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+          <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo" width="150" height="44" decoding="async">
+        </picture>
       </a>
 
       <nav class="site-nav" data-site-nav aria-label="Navegação Principal">
@@ -47,26 +50,25 @@
   </header>
 
   <main>
-    <!-- Especificações Técnicas e Telemetria IoT (RF-003) -->
+    <!-- Especificações Técnicas e Telemetria IoT -->
     <section class="section">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">
             <i class="fa-solid fa-microchip" aria-hidden="true"></i>
-            Engenharia Robusta de Campo
+            <span data-i18n="oxilife.tag">Engenharia Robusta de Campo</span>
           </span>
           <h1 data-i18n="oxilife.title">Especificações Técnicas e Monitoramento Remoto</h1>
         </div>
 
-        <!-- 3 Diferenciais lado a lado sem deixar buracos vazios -->
         <h2 data-i18n="oxilife.hardware_title">Diferenciais do Hardware</h2>
         <div class="grid-3">
           <article class="card-service">
             <div class="card-service__icon" aria-hidden="true">
               <i class="fa-solid fa-droplet"></i>
             </div>
-            <h3 class="card-title">Sensor Óptico de Luminescência</h3>
-            <p class="body-text">
+            <h3 class="card-title" data-i18n="oxilife.hw_1_title">Sensor Óptico de Luminescência</h3>
+            <p class="body-text" data-i18n="oxilife.hw_1_desc">
               Leitura milimétrica de O₂ dissolvido e temperatura sem consumo químico de oxigênio durante a análise.
             </p>
           </article>
@@ -75,8 +77,8 @@
             <div class="card-service__icon" aria-hidden="true">
               <i class="fa-solid fa-tower-broadcast"></i>
             </div>
-            <h3 class="card-title">Telemetria Rural de Longo Alcance</h3>
-            <p class="body-text">
+            <h3 class="card-title" data-i18n="oxilife.hw_2_title">Telemetria Rural de Longo Alcance</h3>
+            <p class="body-text" data-i18n="oxilife.hw_2_desc">
               Comunicação via rádio e IoT sem depender de cabos atravessando represas ou áreas de tráfego de tratores.
             </p>
           </article>
@@ -85,8 +87,8 @@
             <div class="card-service__icon" aria-hidden="true">
               <i class="fa-solid fa-bell"></i>
             </div>
-            <h3 class="card-title">Alertas Imediatos no Smartphone</h3>
-            <p class="body-text">
+            <h3 class="card-title" data-i18n="oxilife.hw_3_title">Alertas Imediatos no Smartphone</h3>
+            <p class="body-text" data-i18n="oxilife.hw_3_desc">
               Disparo sonoro prioritário no celular antes que o peixe atinja o limiar de asfixia e perda de apetite.
             </p>
           </article>
@@ -94,37 +96,37 @@
       </div>
     </section>
 
-    <!-- Capacidade Técnica + Demonstração da Interface Mobile IoT em colunas equilibradas -->
+    <!-- Capacidade Técnica + Demonstração da Interface Mobile IoT -->
     <section class="section section--surface">
       <div class="container">
         <div class="grid-2">
           <article class="card-info">
             <div>
-              <span class="section-tag">Automação Completa de Tanques</span>
+              <span class="section-tag" data-i18n="oxilife.specs_tag">Automação Completa de Tanques</span>
               <h2 data-i18n="oxilife.specs_title">Capacidade e Segurança em Viveiros Escavados</h2>
-              <p class="body-text">
+              <p class="body-text" data-i18n="oxilife.specs_lead">
                 Projetada com componentes de padrão industrial para operar no rigor climático do campo, automatizando a oxigenação e protegendo sua safra durante toda a madrugada.
               </p>
               <ul class="check-list">
                 <li>
                   <i class="fa-solid fa-check" aria-hidden="true"></i>
-                  <span>Controle automático de até <strong>4 grupos de aeradores</strong> de forma independente</span>
+                  <span data-i18n="oxilife.spec_1">Controle automático de até 4 grupos de aeradores de forma independente</span>
                 </li>
                 <li>
                   <i class="fa-solid fa-check" aria-hidden="true"></i>
-                  <span>Integração de até <strong>3 sondas Oxilife Fish</strong> no mesmo painel de comando</span>
+                  <span data-i18n="oxilife.spec_2">Integração de até 3 sondas Oxilife Fish no mesmo painel de comando</span>
                 </li>
                 <li>
                   <i class="fa-solid fa-check" aria-hidden="true"></i>
-                  <span>Alarme inteligente para níveis críticos (máximo/mínimo) e alerta de falha de leitura</span>
+                  <span data-i18n="oxilife.spec_3">Alarme inteligente para níveis críticos (máximo/mínimo) e alerta de falha de leitura</span>
                 </li>
                 <li>
                   <i class="fa-solid fa-check" aria-hidden="true"></i>
-                  <span><strong>Data Logger integrado:</strong> histórico de leituras gravado em pendrive</span>
+                  <span data-i18n="oxilife.spec_4">Data Logger integrado: histórico de leituras gravado em pendrive</span>
                 </li>
                 <li>
                   <i class="fa-solid fa-check" aria-hidden="true"></i>
-                  <span>Acesso remoto via aplicativo para celular com acionamento e acompanhamento em tempo real</span>
+                  <span data-i18n="oxilife.spec_5">Acesso remoto via aplicativo para celular com acionamento e acompanhamento em tempo real</span>
                 </li>
               </ul>
             </div>
@@ -140,31 +142,31 @@
             <div class="iot-mockup" role="region" aria-label="Simulação do painel mobile Oxilife Rural IoT">
               <div class="iot-mockup__header">
                 <span><i class="fa-solid fa-wifi" aria-hidden="true"></i> <strong>Oxilife Rural IoT</strong></span>
-                <span class="badge-status badge-status--success badge-status--live">ONLINE</span>
+                <span class="badge-status badge-status--success badge-status--live" data-i18n="oxilife.iot_online">ONLINE</span>
               </div>
 
               <div class="iot-tank-card iot-tank-card--critical">
                 <div>
-                  <div class="iot-tank-title">ALERTA: Tanque 02 Crítico</div>
-                  <div class="iot-tank-reading">O₂ em 2.4 mg/L &mdash; Aerador 02 acionado automaticamente</div>
+                  <div class="iot-tank-title" data-i18n="oxilife.iot_alert_title">ALERTA: Tanque 02 Crítico</div>
+                  <div class="iot-tank-reading" data-i18n="oxilife.iot_alert_desc">O₂ em 2.4 mg/L &mdash; Aerador 02 acionado automaticamente</div>
                 </div>
-                <span class="badge-status badge-status--critical">Hipóxia</span>
+                <span class="badge-status badge-status--critical" data-i18n="oxilife.iot_hypoxia">Hipóxia</span>
               </div>
 
               <div class="iot-tank-card">
                 <div>
-                  <div class="iot-tank-title">Tanque 01 (Engorda)</div>
-                  <div class="iot-tank-reading">O₂: 5.8 mg/L &mdash; 27.2°C</div>
+                  <div class="iot-tank-title" data-i18n="oxilife.iot_tank1_title">Tanque 01 (Engorda)</div>
+                  <div class="iot-tank-reading" data-i18n="oxilife.iot_tank1_desc">O₂: 5.8 mg/L &mdash; 27.2°C</div>
                 </div>
-                <span class="badge-status badge-status--success">Estável</span>
+                <span class="badge-status badge-status--success" data-i18n="oxilife.iot_stable">Estável</span>
               </div>
 
               <div class="iot-tank-card">
                 <div>
-                  <div class="iot-tank-title">Tanque 03 (Berçário)</div>
-                  <div class="iot-tank-reading">O₂: 6.2 mg/L &mdash; 28.0°C</div>
+                  <div class="iot-tank-title" data-i18n="oxilife.iot_tank3_title">Tanque 03 (Berçário)</div>
+                  <div class="iot-tank-reading" data-i18n="oxilife.iot_tank3_desc">O₂: 6.2 mg/L &mdash; 28.0°C</div>
                 </div>
-                <span class="badge-status badge-status--success">Estável</span>
+                <span class="badge-status badge-status--success" data-i18n="oxilife.iot_stable">Estável</span>
               </div>
 
               <a href="contato.html" class="btn-primary btn-block">
@@ -226,7 +228,10 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" class="footer-brand-box" aria-label="Eletrotech Sistemas Elétricos Home">
-            <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo">
+            <picture>
+              <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+              <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo" width="150" height="44" loading="lazy" decoding="async">
+            </picture>
           </a>
           <p class="caption" data-i18n="footer.about">
             Soluções completas em engenharia elétrica e tecnologia patenteada de monitoramento contínuo para tanques de piscicultura.
@@ -247,20 +252,20 @@
         <div>
           <h3 class="footer-heading" data-i18n="footer.products_title">Produtos &amp; Sistemas</h3>
           <ul class="footer-links">
-            <li><a href="oxilife-fish.html">Sonda Oxilife Fish (OXI-01)</a></li>
-            <li><a href="catalogo.html">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
-            <li><a href="catalogo.html">Motores Elétricos Hércules</a></li>
-            <li><a href="catalogo.html">Materiais Elétricos &amp; Zagonel</a></li>
+            <li><a href="oxilife-fish.html" data-i18n="footer.prod_1">Sonda Oxilife Fish (OXI-01)</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_2">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_3">Motores Elétricos Hércules</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_4">Materiais Elétricos &amp; Zagonel</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer-heading" data-i18n="footer.services_title">Engenharia &amp; Serviços</h3>
           <ul class="footer-links">
-            <li><a href="servicos.html">Automação de Viveiros</a></li>
-            <li><a href="servicos.html">Motores e Bombas D&rsquo;água</a></li>
-            <li><a href="servicos.html">Plantão Emergencial 24h</a></li>
-            <li><a href="faq.html">Calibração Periódica de Sondas</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_1">Automação de Viveiros</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_2">Motores e Bombas D&rsquo;água</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_3">Plantão Emergencial 24h</a></li>
+            <li><a href="faq.html" data-i18n="footer.serv_4">Calibração Periódica de Sondas</a></li>
           </ul>
         </div>
 
@@ -272,7 +277,7 @@
             <p class="caption" data-i18n="footer.hours">Segunda a Sexta: 07:30 às 18:00</p>
             <p class="caption" data-i18n="footer.languages">Idiomas: Português | Español | English</p>
             <a href="https://www.google.com/maps/search/?api=1&query=R.+Darley+Germano+Bregolli%2C+513+-+Vila+Ga%C3%BAcha%2C+Marechal+C%C3%A2ndido+Rondon+-+PR%2C+85960-000" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.maps">Ver localização no Google Maps</a>
-            <a href="admin/login.html" class="caption tap-target footer-inline-link" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
+            <a href="https://eletrotech.sanity.studio/" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
           </div>
         </div>
       </div>

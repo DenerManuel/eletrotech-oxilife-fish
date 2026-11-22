@@ -17,7 +17,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Eletrotech Home">
-        <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo">
+        <picture>
+          <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+          <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo" width="150" height="44" decoding="async">
+        </picture>
       </a>
 
       <nav class="site-nav" data-site-nav aria-label="Navegação Principal">
@@ -56,18 +59,18 @@
             <span data-i18n="catalog.tag">Equipamentos, Motores &amp; Instalações Elétricas</span>
           </span>
           <h1 data-i18n="catalog.title">Catálogo de Produtos e Sistemas</h1>
-          <p class="body-text">
+          <p class="body-text" data-i18n="catalog.lead">
             Soluções completas em automação, motores, elétrica e instrumentação aquícola. Consulte nossa engenharia diretamente pelo WhatsApp.
           </p>
         </div>
 
         <div class="filter-bar">
           <div class="filter-pills" role="group" aria-label="Filtrar produtos por categoria">
-            <button type="button" class="filter-btn active" data-filter-category="all" data-i18n="catalog.filter_all">Todos os Produtos</button>
-            <button type="button" class="filter-btn" data-filter-category="sondas" data-i18n="catalog.filter_sondas">Sondas &amp; Oxímetros</button>
-            <button type="button" class="filter-btn" data-filter-category="paineis" data-i18n="catalog.filter_paineis">Painéis &amp; Elétrica</button>
-            <button type="button" class="filter-btn" data-filter-category="motores" data-i18n="catalog.filter_motores">Motores Hércules</button>
-            <button type="button" class="filter-btn" data-filter-category="zagonel" data-i18n="catalog.filter_zagonel">Zagonel</button>
+            <button type="button" class="filter-btn active" data-filter-category="all" aria-pressed="true" data-i18n="catalog.filter_all">Todos os Produtos</button>
+            <button type="button" class="filter-btn" data-filter-category="sondas" aria-pressed="false" data-i18n="catalog.filter_sondas">Sondas &amp; Oxímetros</button>
+            <button type="button" class="filter-btn" data-filter-category="paineis" aria-pressed="false" data-i18n="catalog.filter_paineis">Painéis &amp; Elétrica</button>
+            <button type="button" class="filter-btn" data-filter-category="motores" aria-pressed="false" data-i18n="catalog.filter_motores">Motores Hércules</button>
+            <button type="button" class="filter-btn" data-filter-category="zagonel" aria-pressed="false" data-i18n="catalog.filter_zagonel">Zagonel</button>
           </div>
 
           <div class="search-box">
@@ -75,17 +78,17 @@
           </div>
         </div>
 
-        <!-- Container marcado para integração futura com Sanity CMS -->
+        <!-- Container sincronizado com Sanity CMS (mantém fallback estático se offline) -->
         <div class="grid-3" data-sanity-list="produtos">
           <!-- Produto 1: Sonda Oxilife Fish -->
           <article class="card-product" data-item-category="sondas" data-search-text="Sonda Oxilife Fish OXI-01 oxigenio dissolvido temperatura aeradores piscicultura">
             <div class="card-product__content">
               <div class="product-thumb">
                 <i class="fa-solid fa-microchip" aria-hidden="true"></i>
-                <span class="caption">Foto pronta para Sanity CMS</span>
+                <span class="caption" data-i18n="catalog.photo_placeholder">Equipamento Eletrotech</span>
               </div>
               <div class="card-meta-row">
-                <span class="badge-status badge-status--success">Destaque</span>
+                <span class="badge-status badge-status--success" data-i18n="catalog.badge_featured">Destaque</span>
                 <span class="sku-tag">SKU: OXI-01</span>
               </div>
               <h2 class="card-title">Sonda Oxilife Fish</h2>
@@ -107,7 +110,7 @@
             <div class="card-product__content">
               <div class="product-thumb">
                 <i class="fa-solid fa-gauge" aria-hidden="true"></i>
-                <span class="caption">Foto pronta para Sanity CMS</span>
+                <span class="caption" data-i18n="catalog.photo_placeholder">Equipamento Eletrotech</span>
               </div>
               <div class="card-meta-row">
                 <span class="section-tag">Portátil</span>
@@ -132,7 +135,7 @@
             <div class="card-product__content">
               <div class="product-thumb">
                 <i class="fa-solid fa-bell" aria-hidden="true"></i>
-                <span class="caption">Foto pronta para Sanity CMS</span>
+                <span class="caption" data-i18n="catalog.photo_placeholder">Equipamento Eletrotech</span>
               </div>
               <div class="card-meta-row">
                 <span class="section-tag">Wi-Fi &amp; App</span>
@@ -157,7 +160,7 @@
             <div class="card-product__content">
               <div class="product-thumb">
                 <i class="fa-solid fa-gears" aria-hidden="true"></i>
-                <span class="caption">Foto pronta para Sanity CMS</span>
+                <span class="caption" data-i18n="catalog.photo_placeholder">Equipamento Eletrotech</span>
               </div>
               <div class="card-meta-row">
                 <span class="section-tag">Novos</span>
@@ -182,7 +185,7 @@
             <div class="card-product__content">
               <div class="product-thumb">
                 <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-                <span class="caption">Foto pronta para Sanity CMS</span>
+                <span class="caption" data-i18n="catalog.photo_placeholder">Equipamento Eletrotech</span>
               </div>
               <div class="card-meta-row">
                 <span class="section-tag">Painéis &amp; Automação</span>
@@ -206,7 +209,7 @@
           <article class="card-product" data-item-category="zagonel" data-search-text="Chuveiros Torneiras Zagonel ZAG-LINHA hidraulica chuveiro torneira eletrica">
             <div class="card-product__content">
               <div class="product-thumb product-thumb--photo">
-                <img src="assets/chuveiro-zagonel.jpg" alt="Chuveiro elétrico Zagonel" class="product-thumb__img">
+                <img src="assets/chuveiro-zagonel.jpg" alt="Chuveiro elétrico Zagonel" class="product-thumb__img" width="140" height="140" loading="lazy" decoding="async">
               </div>
               <div class="card-meta-row">
                 <span class="section-tag">Hidráulica &amp; Conforto</span>
@@ -232,6 +235,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal nativo de galeria de fotos extras (carrega sob demanda) -->
+    <dialog class="gallery-modal" data-gallery-modal aria-labelledby="gallery-modal-title">
+      <div class="gallery-modal__header">
+        <h2 id="gallery-modal-title" data-gallery-title data-i18n="catalog.gallery_title">Fotos do Produto</h2>
+        <button type="button" class="gallery-modal__close" data-gallery-close aria-label="Fechar galeria">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="gallery-modal__grid" data-gallery-grid></div>
+    </dialog>
   </main>
 
   <!-- Rodapé Padronizado -->
@@ -240,7 +254,10 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" class="footer-brand-box" aria-label="Eletrotech Sistemas Elétricos Home">
-            <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo">
+            <picture>
+              <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+              <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo" width="150" height="44" loading="lazy" decoding="async">
+            </picture>
           </a>
           <p class="caption" data-i18n="footer.about">
             Soluções completas em engenharia elétrica e tecnologia patenteada de monitoramento contínuo para tanques de piscicultura.
@@ -261,20 +278,20 @@
         <div>
           <h3 class="footer-heading" data-i18n="footer.products_title">Produtos &amp; Sistemas</h3>
           <ul class="footer-links">
-            <li><a href="oxilife-fish.html">Sonda Oxilife Fish (OXI-01)</a></li>
-            <li><a href="catalogo.html">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
-            <li><a href="catalogo.html">Motores Elétricos Hércules</a></li>
-            <li><a href="catalogo.html">Materiais Elétricos &amp; Zagonel</a></li>
+            <li><a href="oxilife-fish.html" data-i18n="footer.prod_1">Sonda Oxilife Fish (OXI-01)</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_2">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_3">Motores Elétricos Hércules</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_4">Materiais Elétricos &amp; Zagonel</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer-heading" data-i18n="footer.services_title">Engenharia &amp; Serviços</h3>
           <ul class="footer-links">
-            <li><a href="servicos.html">Automação de Viveiros</a></li>
-            <li><a href="servicos.html">Motores e Bombas D&rsquo;água</a></li>
-            <li><a href="servicos.html">Plantão Emergencial 24h</a></li>
-            <li><a href="faq.html">Calibração Periódica de Sondas</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_1">Automação de Viveiros</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_2">Motores e Bombas D&rsquo;água</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_3">Plantão Emergencial 24h</a></li>
+            <li><a href="faq.html" data-i18n="footer.serv_4">Calibração Periódica de Sondas</a></li>
           </ul>
         </div>
 
@@ -286,7 +303,7 @@
             <p class="caption" data-i18n="footer.hours">Segunda a Sexta: 07:30 às 18:00</p>
             <p class="caption" data-i18n="footer.languages">Idiomas: Português | Español | English</p>
             <a href="https://www.google.com/maps/search/?api=1&query=R.+Darley+Germano+Bregolli%2C+513+-+Vila+Ga%C3%BAcha%2C+Marechal+C%C3%A2ndido+Rondon+-+PR%2C+85960-000" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.maps">Ver localização no Google Maps</a>
-            <a href="admin/login.html" class="caption tap-target footer-inline-link" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
+            <a href="https://eletrotech.sanity.studio/" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
           </div>
         </div>
       </div>

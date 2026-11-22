@@ -6,9 +6,17 @@ export const produtoType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'ordem',
+      title: 'Ordem de Exibição',
+      type: 'number',
+      description: 'Produtos em destaque aparecem primeiro; os demais seguem esta ordem.',
+      initialValue: 10,
+      validation: (rule) => rule.integer().positive().error('Use um número inteiro positivo.'),
+    }),
+    defineField({
       name: 'titulo',
       title: 'Nome do Produto',
-      type: 'string',
+      type: 'textoTraduzidoLinha',
       validation: (rule) => rule.required().error('O nome do produto é obrigatório.'),
     }),
     defineField({
@@ -28,17 +36,19 @@ export const produtoType = defineType({
       name: 'descricao',
       title: 'Descrição do Produto',
       type: 'textoTraduzido',
+      validation: (rule) => rule.required().error('A descrição em português é obrigatória.'),
     }),
     defineField({
       name: 'imagem',
       title: 'Foto Principal (Capa do Card)',
+      description: 'O site redimensiona e comprime automaticamente para 3G/4G.',
       type: 'image',
       options: {hotspot: true},
     }),
     defineField({
       name: 'galeria',
       title: 'Galeria de Fotos Extras',
-      description: 'Substitui a antiga tabela produto_imagens do SQL.',
+      description: 'Fotos adicionais exibidas apenas quando o cliente clicar em "Ver mais fotos".',
       type: 'array',
       of: [{type: 'image', options: {hotspot: true}}],
     }),
@@ -57,9 +67,18 @@ export const produtoType = defineType({
   ],
   preview: {
     select: {
-      title: 'titulo',
+      titlePt: 'titulo.pt',
+      titleRaw: 'titulo',
       subtitle: 'sku',
       media: 'imagem',
+    },
+    prepare({titlePt, titleRaw, subtitle, media}) {
+      const title = typeof titleRaw === 'string' ? titleRaw : titlePt
+      return {
+        title: title || 'Produto sem nome',
+        subtitle: subtitle ? `SKU: ${subtitle}` : 'Sem SKU',
+        media,
+      }
     },
   },
 })

@@ -17,7 +17,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand" aria-label="Eletrotech Home">
-        <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo">
+        <picture>
+          <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+          <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="brand-logo" width="150" height="44" decoding="async">
+        </picture>
       </a>
 
       <nav class="site-nav" data-site-nav aria-label="Navegação Principal">
@@ -57,8 +60,8 @@
           </span>
           <h1 data-i18n="home.title">Soluções Elétricas &amp; Automação Industrial</h1>
         </div>
-        <p class="body-text intro-lead">
-          Desde 2018, a <strong>Eletrotech Sistemas Elétricos</strong> atua com soluções elétricas, manutenção de motores e bombas d&rsquo;água, automação e projetos industriais. Ao longo dos anos, ampliamos nossa experiência e aprimoramos nossos serviços, sempre prezando pela excelência, qualidade e compromisso com os prazos. Nosso diferencial está na flexibilidade de atendimento, inclusive em horários especiais e fora do horário comercial, garantindo suporte quando nossos clientes mais precisam.
+        <p class="body-text intro-lead" data-i18n="home.lead">
+          Desde 2018, a Eletrotech Sistemas Elétricos atua com soluções elétricas, manutenção de motores e bombas d&rsquo;água, automação e projetos industriais. Ao longo dos anos, ampliamos nossa experiência e aprimoramos nossos serviços, sempre prezando pela excelência, qualidade e compromisso com os prazos. Nosso diferencial está na flexibilidade de atendimento, inclusive em horários especiais e fora do horário comercial, garantindo suporte quando nossos clientes mais precisam.
         </p>
       </div>
     </section>
@@ -72,7 +75,7 @@
             <span data-i18n="home.tag_patent">Tecnologia Patenteada no Brasil</span>
           </span>
           <h2 data-i18n="home.oxilife_title">Oxilife Fish: Monitoramento Inteligente para Piscicultura</h2>
-          <p class="body-text">
+          <p class="body-text" data-i18n="home.oxilife_desc">
             Sonda automatizada de alta precisão para tanques escavados: leitura contínua de oxigênio dissolvido, alertas sonoros e remotos instantâneos e acionamento inteligente de aeradores.
           </p>
           <div class="hero-actions">
@@ -88,20 +91,20 @@
 
         <div>
           <div class="card-meta-row">
-            <span class="caption">Equipamento em Campo</span>
-            <span class="badge-status badge-status--success">Patente Registrada</span>
+            <span class="caption" data-i18n="home.showcase_label">Equipamento em Campo</span>
+            <span class="badge-status badge-status--success" data-i18n="home.showcase_patent">Patente Registrada</span>
           </div>
           <figure class="media-showcase">
             <div class="media-showcase__icon" aria-hidden="true">
               <i class="fa-solid fa-microchip"></i>
             </div>
             <figcaption>
-              <strong>Sonda Oxilife Fish Instalada em Viveiro Escavado</strong>
-              <p class="caption">Monitoramento óptico em alta resolução resistente a intempéries rurais</p>
+              <strong data-i18n="home.showcase_caption_title">Sonda Oxilife Fish Instalada em Viveiro Escavado</strong>
+              <p class="caption" data-i18n="home.showcase_caption_desc">Monitoramento óptico em alta resolução resistente a intempéries rurais</p>
             </figcaption>
             <div class="media-showcase__badge">
-              <span class="badge-status badge-status--success badge-status--live">Operação Contínua</span>
-              <span class="caption">Leituras em tempo real 24/7</span>
+              <span class="badge-status badge-status--success badge-status--live" data-i18n="home.showcase_live">Operação Contínua</span>
+              <span class="caption" data-i18n="home.showcase_247">Leituras em tempo real 24/7</span>
             </div>
           </figure>
         </div>
@@ -117,13 +120,13 @@
               <span class="badge-status badge-status--success" data-i18n="home.featured_product">Produto em Destaque</span>
               <span class="sku-tag">SKU: OXI-01</span>
             </div>
-            <h3 class="card-title">Sonda Oxilife Fish</h3>
-            <p class="card-product__body">
+            <h3 class="card-title" data-i18n="home.featured_prod_title">Sonda Oxilife Fish</h3>
+            <p class="card-product__body" data-i18n="home.featured_prod_desc">
               Monitoramento contínuo e inteligente de oxigênio dissolvido e temperatura, prevenindo perdas por hipóxia e acionando aeradores em tempo real.
             </p>
           </div>
           <div class="card-footer-row">
-            <span class="caption"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Tecnologia Patenteada</span>
+            <span class="caption"><i class="fa-solid fa-certificate" aria-hidden="true"></i> <span data-i18n="home.featured_prod_badge">Tecnologia Patenteada</span></span>
             <a href="catalogo.html" class="btn-secondary">
               <span data-i18n="btn.see_catalog">Veja mais no catálogo</span>
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -137,13 +140,13 @@
               <span class="section-tag" data-i18n="home.featured_service">Serviço em Destaque</span>
               <span class="sku-tag">ENGENHARIA</span>
             </div>
-            <h3 class="card-title">Automação e Engenharia de Aeradores</h3>
-            <p class="card-product__body">
+            <h3 class="card-title" data-i18n="home.featured_serv_title">Automação e Engenharia de Aeradores</h3>
+            <p class="card-product__body" data-i18n="home.featured_serv_desc">
               Projetos e montagem de quadros de comando inteligentes com partida suave, balanceamento de motores e acionamento integrado à sonda.
             </p>
           </div>
           <div class="card-footer-row">
-            <span class="caption"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Atendimento Especializado</span>
+            <span class="caption"><i class="fa-solid fa-bolt" aria-hidden="true"></i> <span data-i18n="home.featured_serv_badge">Atendimento Especializado</span></span>
             <a href="servicos.html" class="btn-secondary">
               <span data-i18n="btn.know_services">Conhecer serviços</span>
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -160,7 +163,10 @@
       <div class="footer-grid">
         <div>
           <a href="index.html" class="footer-brand-box" aria-label="Eletrotech Sistemas Elétricos Home">
-            <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo">
+            <picture>
+              <source srcset="assets/logo_eletrotech_rv.webp" type="image/webp">
+              <img src="assets/logo_eletrotech_rv.png" alt="Logo Eletrotech Sistemas Elétricos" class="footer-logo" width="150" height="44" loading="lazy" decoding="async">
+            </picture>
           </a>
           <p class="caption" data-i18n="footer.about">
             Soluções completas em engenharia elétrica e tecnologia patenteada de monitoramento contínuo para tanques de piscicultura.
@@ -181,20 +187,20 @@
         <div>
           <h3 class="footer-heading" data-i18n="footer.products_title">Produtos &amp; Sistemas</h3>
           <ul class="footer-links">
-            <li><a href="oxilife-fish.html">Sonda Oxilife Fish (OXI-01)</a></li>
-            <li><a href="catalogo.html">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
-            <li><a href="catalogo.html">Motores Elétricos Hércules</a></li>
-            <li><a href="catalogo.html">Materiais Elétricos &amp; Zagonel</a></li>
+            <li><a href="oxilife-fish.html" data-i18n="footer.prod_1">Sonda Oxilife Fish (OXI-01)</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_2">Oxímetro Manual &amp; Alarme Wi-Fi</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_3">Motores Elétricos Hércules</a></li>
+            <li><a href="catalogo.html" data-i18n="footer.prod_4">Materiais Elétricos &amp; Zagonel</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer-heading" data-i18n="footer.services_title">Engenharia &amp; Serviços</h3>
           <ul class="footer-links">
-            <li><a href="servicos.html">Automação de Viveiros</a></li>
-            <li><a href="servicos.html">Motores e Bombas D&rsquo;água</a></li>
-            <li><a href="servicos.html">Plantão Emergencial 24h</a></li>
-            <li><a href="faq.html">Calibração Periódica de Sondas</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_1">Automação de Viveiros</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_2">Motores e Bombas D&rsquo;água</a></li>
+            <li><a href="servicos.html" data-i18n="footer.serv_3">Plantão Emergencial 24h</a></li>
+            <li><a href="faq.html" data-i18n="footer.serv_4">Calibração Periódica de Sondas</a></li>
           </ul>
         </div>
 
@@ -206,7 +212,7 @@
             <p class="caption" data-i18n="footer.hours">Segunda a Sexta: 07:30 às 18:00</p>
             <p class="caption" data-i18n="footer.languages">Idiomas: Português | Español | English</p>
             <a href="https://www.google.com/maps/search/?api=1&query=R.+Darley+Germano+Bregolli%2C+513+-+Vila+Ga%C3%BAcha%2C+Marechal+C%C3%A2ndido+Rondon+-+PR%2C+85960-000" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.maps">Ver localização no Google Maps</a>
-            <a href="admin/login.html" class="caption tap-target footer-inline-link" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
+            <a href="https://eletrotech.sanity.studio/" class="caption tap-target footer-inline-link" target="_blank" rel="noopener noreferrer" data-i18n="footer.admin">Acesso Restrito (Admin)</a>
           </div>
         </div>
       </div>

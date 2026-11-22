@@ -4,6 +4,7 @@ import {faqType} from './faq'
 import {produtoType} from './produto'
 import {servicoType} from './servico'
 import {textoTraduzidoType} from './textoTraduzido'
+import {textoTraduzidoLinhaType} from './textoTraduzidoLinha'
 
 export const schemaTypes = [
   categoriaType,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   faqType,
   depoimentoType,
   textoTraduzidoType,
+  textoTraduzidoLinhaType,
 ]

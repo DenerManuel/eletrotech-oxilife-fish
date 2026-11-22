@@ -6,6 +6,13 @@ export const depoimentoType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'ordem',
+      title: 'Ordem de Exibição',
+      type: 'number',
+      initialValue: 1,
+      validation: (rule) => rule.integer().positive().error('Use um número inteiro positivo.'),
+    }),
+    defineField({
       name: 'nomeProdutor',
       title: 'Nome do Produtor / Cliente',
       type: 'string',
@@ -28,7 +35,7 @@ export const depoimentoType = defineType({
       title: 'Nota (1 a 5 estrelas)',
       type: 'number',
       initialValue: 5,
-      validation: (rule) => rule.min(1).max(5).integer(),
+      validation: (rule) => rule.required().min(1).max(5).integer().error('Escolha uma nota de 1 a 5.'),
     }),
     defineField({
       name: 'texto',
@@ -46,7 +53,15 @@ export const depoimentoType = defineType({
     defineField({
       name: 'videoUrl',
       title: 'Link de Vídeo (opcional)',
+      description: 'Link completo começando com https://',
       type: 'url',
+      validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+    }),
+    defineField({
+      name: 'ativo',
+      title: 'Exibir no site?',
+      type: 'boolean',
+      initialValue: true,
     }),
   ],
   preview: {
